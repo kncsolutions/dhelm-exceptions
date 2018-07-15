@@ -5,6 +5,10 @@
   <groupId>in.kncsolutions.dhelm.exceptions</groupId>
   <artifactId>dhelm-exceptions</artifactId>
   <version>1.0.4</version>
+  <packaging>jar</packaging>
+  <description>
+  Data related exceptions.
+  </description>
   <name>dhelm-exceptions</name>
   <url>https://dhelm.kncsolutions.in</url>
   
@@ -32,9 +36,9 @@
   </developers>
   
   <scm>
-    <connection>scm:git:https://github.com/kncsolutions/dhelm.git</connection>
-    <developerConnection>scm:git:https://github.com/kncsolutions/dhelm.git</developerConnection>
-    <url>https://github.com/kncsolutions/dhelm</url>
+    <connection>scm:git:https://github.com/kncsolutions/dhelm-exceptions.git</connection>
+    <developerConnection>scm:git:https://github.com/kncsolutions/dhelm-exceptions.git</developerConnection>
+    <url>https://github.com/kncsolutions/dhelm-exceptions</url>
   </scm>
  
    <properties>
@@ -63,6 +67,15 @@
   
   <build>
 	<plugins>
+   <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-compiler-plugin</artifactId>
+       <version>3.0</version>
+          <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          </configuration>
+   </plugin> 
    <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
@@ -118,7 +131,35 @@
 					</goals>
 				</execution>
 			</executions>
-		</plugin>            	
+		</plugin> 
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-site-plugin</artifactId>
+            <version>3.3</version>
+                    <executions>
+          <execution>
+            <id>attach-descriptor</id>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+			<configuration>        
+              <aggregate>true</aggregate>       
+             </configuration>
+</plugin>            	
 	</plugins>
 	</build>
+   <reporting>
+      <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>        
+           <aggregate>true</aggregate>       
+        </configuration>
+      </plugin>
+      </plugins>    
+</reporting> 
 </project>
